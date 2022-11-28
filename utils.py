@@ -31,7 +31,7 @@ def detection(img, confi, detect):
     net.setInput(blob)
     detections = net.forward()
     person: int = 0
-
+    results: dict = {}
     for i in np.arange(0, detections.shape[2]):
         confidence = detections[0, 0, i, 2]
 
@@ -49,10 +49,11 @@ def detection(img, confi, detect):
                 cv2.putText(image, label, (startX, y),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (25, 216, 94), 2)
                 person += 1
-
+    results[f'{detect}s'] = person
     print(f'Total {detect}s : {person}')
-    if person > 0:
-        cv2.putText(image, f'Total {detect}s : {person}', (10, 20), cv2.FONT_HERSHEY_DUPLEX, 0.6, (255, 0, 0), 2)
-        cv2.imshow(img, image)
-        cv2.waitKey(0)
-        cv2.destroyWindow(img)
+#    if person > 0:
+#        cv2.putText(image, f'Total {detect}s : {person}', (10, 20), cv2.FONT_HERSHEY_DUPLEX, 0.6, (255, 0, 0), 2)
+#        cv2.imshow(img, image)
+#        cv2.waitKey(0)
+#        cv2.destroyWindow(img)
+    return results
