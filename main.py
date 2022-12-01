@@ -15,10 +15,9 @@ class Dogs(Resource):
     @staticmethod
     def get():
         d = {}
-        for i, f in enumerate(files):
-            d[i] = {}
-            print(f)
-            d[i] = detection(f, args["confidence"], 'dog')
+        for f in files:
+            d[f] = {}
+            d[f] = detection(f, args["confidence"], 'dog')
         return d
 
 
@@ -26,10 +25,9 @@ class Cats(Resource):
     @staticmethod
     def get():
         d = {}
-        for i, f in enumerate(files):
-            d[i] = {}
-            print(f)
-            d[i] = detection(f, args["confidence"], 'cat')
+        for f in files:
+            d[f] = {}
+            d[f] = detection(f, args["confidence"], 'cat')
         return d
 
 
