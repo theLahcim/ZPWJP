@@ -45,7 +45,6 @@ class Cats(Resource):
     @staticmethod
     def get():
         """
-
          Use of class cats
          Class checks if pictures in directory have cats in them and if they do, how many of them
          To use call /cats
@@ -69,4 +68,6 @@ api.add_resource(Dogs, '/dogs')
 api.add_resource(Cats, '/cats')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
+
+
