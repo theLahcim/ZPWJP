@@ -1,7 +1,11 @@
-FROM python:3.9-alpine
+FROM python:3.9
 
 WORKDIR /app
 COPY . .
 RUN pip install -r requirements.txt
 
-CMD["main.py"]
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
+
+EXPOSE 5000
+CMD ["python", "main.py"]
