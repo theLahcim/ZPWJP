@@ -22,4 +22,4 @@ Endpoints used in the app:
 \
 /apidocs - display swagger documentation
 
-Applicatio allows to check if pictures in aplication directory have cats or dogs in them and if they do how many.
+Application allows to check if pictures in aplication directory have cats or dogs in them and if they do how many.
